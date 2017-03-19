@@ -18,7 +18,7 @@ class UpdateUserUseCaseImpl[M[+ _]] @Inject()(
   implicit monad: Monad[M],
   userRepository: UserRepository[M],
   taskRunner: DBIOTaskRunner[M]
-) extends UpdateUserUseCase[M] {
+) extends UpdateUserUseCase {
 
   override def call(arg: (UserId, String))(implicit ec: ExecutionContext): Future[Option[User]] = {
     val (userId, name) = arg

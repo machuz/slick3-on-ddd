@@ -17,7 +17,7 @@ import domainInterface.usecase.user.CreateUserUseCase
 class CreateUserUseCaseImpl[M[+_]] @Inject()(
   implicit monad: Monad[M],
   userRepository: UserRepository[M],
-  taskRunner: DBIOTaskRunner[M]) extends CreateUserUseCase[M] {
+  taskRunner: DBIOTaskRunner[M]) extends CreateUserUseCase {
 
   override def call(arg: String)(implicit ec: ExecutionContext): Future[User] = {
     val name = arg

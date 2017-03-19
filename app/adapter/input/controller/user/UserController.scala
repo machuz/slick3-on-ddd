@@ -3,7 +3,6 @@ package adapter.input.controller.user
 import com.google.inject.Inject
 
 import adapter.input.json.model.user.{ UserCreateRequest, UserDeleteRequest, UserUpdateRequest }
-import slick.dbio.DBIO
 
 import scala.concurrent.Future
 
@@ -16,10 +15,10 @@ import domainInterface.adapter.output.{ CreateUserResultPresenter, DeleteUserRes
 import domainInterface.usecase.user.{ CreateUserUseCase, DeleteUserUseCase, ListUserUseCase, UpdateUserUseCase }
 
 class UserController @Inject()(
-  createUserUseCase: CreateUserUseCase[DBIO],
-  updateUserUseCase: UpdateUserUseCase[DBIO],
+  createUserUseCase: CreateUserUseCase,
+  updateUserUseCase: UpdateUserUseCase,
   deleteUserUseCase: DeleteUserUseCase,
-  listUserUseCase: ListUserUseCase[DBIO],
+  listUserUseCase: ListUserUseCase,
   createUserResultPresenter: CreateUserResultPresenter[Result],
   updateUserResultPresenter: UpdateUserResultPresenter[Result],
   deleteUserResultPresenter: DeleteUserResultPresenter[Result],

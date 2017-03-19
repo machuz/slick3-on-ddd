@@ -1,9 +1,7 @@
 package adapter.ioGateway.rds.slick.dao
 
 import adapter.ioGateway.rds.slick.DBProfile
-import slick.driver.JdbcProfile
 
-import play.api.db.slick.{ DatabaseConfigProvider, HasDatabaseConfig }
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import scalaz.Scalaz.{ ToOptionIdOps, none }
 
@@ -47,5 +45,5 @@ private[ioGateway] object UsersDAO
     arel.filter(_.id === dm.id).update(dm).map { a => if (a == 1) dm.some else none }
   }
 
-  def ioRemoveById(id: String): DBIO[Boolean] = arel.filter(_.id === id).delete.map(_.toString.toBoolean)
+  def ioRemoveById(id: String): DBIO[Boolean] = arel.filter(_.id === id).delete.map(x => x != 0)
 }

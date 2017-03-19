@@ -13,7 +13,7 @@ class DeleteUserResultPresenterImpl
     with UserResponseConverter with Results {
 
   override def response(arg: Future[Boolean])(implicit ec: ExecutionContext): Future[Result] = {
-    arg.map(user => Ok(convertToJson(user)))
+    arg.map(res => Ok(convertToJson(res)))
   }
 
 }

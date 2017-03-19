@@ -19,7 +19,7 @@ class ListUserUseCaseImpl[M[+_]] @Inject()(
   implicit monad: Monad[M],
   userRepository: UserRepository[M],
   taskRunner: DBIOTaskRunner[M]
-) extends ListUserUseCase[M] {
+) extends ListUserUseCase {
 
   override def call(arg: Unit)(implicit ec: ExecutionContext): Future[Seq[User]] = {
     taskRunner.run(for {
