@@ -1,0 +1,6 @@
+GET   /user/list      adapter.input.controller.user.UserController.list
+POST  /user/create    adapter.input.controller.user.UserController.create
+PUT   /user/update    adapter.input.controller.user.UserController.update
+POST  /user/delete    adapter.input.controller.user.UserController.delete
+
+GET   /assets/*file   controllers.Assets.versioned(path="/public", file: Asset)
