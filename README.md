@@ -1,4 +1,4 @@
-# ddd-on-slick3
+# slick3-on-ddd
 
 # init 
 
